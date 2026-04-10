@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocket Optimizer</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:radial-gradient(circle at top,#0b0f1f,#05060a);
+color:white;
+}
+
+/* 📱 APP STYLE HEADER */
+header{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:rgba(10,15,30,0.95);
+padding:12px 5px;
+border-top:2px solid #7c4dff;
+z-index:999;
+}
+
+header a{
+color:#00e5ff;
+font-size:12px;
+text-transform:uppercase;
+font-weight:bold;
+text-align:center;
+}
+
+/* 📱 PANTALLAS */
+.page{
+display:none;
+padding:20px;
+padding-bottom:90px;
+}
+
+.active{
+display:block;
+}
+
+/* 🎮 HERO MOBILE */
+.hero{
+text-align:center;
+padding-top:40px;
+}
+
+.hero h1{
+font-size:28px;
+color:#7c4dff;
+text-shadow:0 0 15px #7c4dff;
+}
+
+.hero p{
+font-size:14px;
+color:#bcdcff;
+}
+
+/* 🔘 BOTONES GRANDES */
+.button{
+display:block;
+width:100%;
+padding:16px;
+margin-top:15px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+background:linear-gradient(90deg,#7c4dff,#00e5ff);
+color:white;
+}
+
+/* 🎮 PACKS */
+.pack{
+background:rgba(18,26,51,0.9);
+padding:18px;
+margin:12px 0;
+border-radius:14px;
+border:1px solid #7c4dff;
+}
+
+/* 🛒 BOTÓN COMPRAR */
+.buy{
+margin-top:12px;
+padding:14px;
+text-align:center;
+border-radius:12px;
+background:linear-gradient(90deg,#7c4dff,#00e5ff);
+font-weight:bold;
+}
+
+/* 📸 IMAGEN */
+img{
+width:100%;
+margin-top:10px;
+border-radius:12px;
+display:none;
+}
+
+/* 💬 CAJAS */
+.box{
+background:rgba(10,15,30,0.9);
+padding:16px;
+border-radius:12px;
+border:1px solid #7c4dff;
+}
+
+/* 🔥 INTRO SIMPLE MOBILE */
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#0d1b3a,#05060a);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+z-index:9999;
+padding:20px;
+}
+
+#intro h1{
+font-size:32px;
+color:#7c4dff;
+}
+
+#intro button{
+margin-top:20px;
+width:80%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#7c4dff,#00e5ff);
+font-weight:bold;
+color:white;
+}
+
+/* 📌 NAV PC OCULTA EN MÓVIL */
+nav{display:none;}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+<h1>ROCKET OPTIMIZER</h1>
+<p>Mejora FPS • Reduce input lag • Rendimiento competitivo</p>
+<button onclick="start()">ENTRAR</button>
+</div>
+
+<!-- NAV MÓVIL -->
+<header>
+<a onclick="show('inicio')">Inicio</a>
+<a onclick="show('packs')">Packs</a>
+<a onclick="show('reviews')">Reseñas</a>
+<a onclick="show('faq')">FAQ</a>
+</header>
+
+<!-- INICIO -->
+<div id="inicio" class="page active">
+
+<div class="hero">
+<h1>MEJORA TU RENDIMIENTO</h1>
+<p>Optimización profesional para FPS y latencia</p>
+
+<div class="box">
+🔥 Más FPS <br>
+⚡ Menos input lag <br>
+🎮 Mejor rendimiento
+</div>
+
+</div>
+
+</div>
+
+<!-- PACKS -->
+<div id="packs" class="page">
+
+<div class="pack">
+⚡ Pack 0 Delay - 5€
+<div class="buy" onclick="showImg('img1')">COMPRAR</div>
+<img id="img1" src="https://i.postimg.cc/JzRzpX7w/IMG-4302.png">
+</div>
+
+<div class="pack">
+💎 Pack Elite - 10€
+<div class="buy" onclick="showImg('img2')">COMPRAR</div>
+<img id="img2" src="https://i.postimg.cc/L6tskDpD/IMG-4301.png">
+</div>
+
+<div class="pack">
+👑 Pack Plus - 15€
+<div class="buy" onclick="showImg('img3')">COMPRAR</div>
+<img id="img3" src="https://i.postimg.cc/zGkVNj2b/IMG-4300.png">
+</div>
+
+</div>
+
+<!-- RESEÑAS -->
+<div id="reviews" class="page">
+<h2>Reseñas</h2>
+
+<div class="box">
+Mis reseñas están en TikTok y Discord.
+</div>
+
+</div>
+
+<!-- FAQ -->
+<div id="faq" class="page">
+
+<h2>FAQ</h2>
+
+<div class="box">
+⏱ Tiempo: 15–35 minutos<br><br>
+🔒 Seguro<br><br>
+💻 Windows compatible<br><br>
+💬 Discord: mbg_rockettt
+</div>
+
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function showImg(id){
+document.getElementById(id).style.display='block';
+}
+
+function start(){
+document.getElementById('intro').style.display='none';
+}
+</script>
+
+</body>
+</html>
